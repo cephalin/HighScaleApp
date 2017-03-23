@@ -10,9 +10,11 @@ namespace HighScaleApp.Controllers
     {
         public ActionResult Index()
         {
+            Session.Add("visited", "true");
             return View();
         }
 
+        [OutputCache(Duration = 60)]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +22,7 @@ namespace HighScaleApp.Controllers
             return View();
         }
 
+        [OutputCache(Duration = 60)]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
